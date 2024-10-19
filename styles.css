@@ -1,0 +1,297 @@
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Ajusta este valor a la altura de tu header */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .banner {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Oculta las imágenes que no están visibles */
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+    height: 70vh; /* Ajusta el contenedor a la mitad de la altura de la ventana */
+    position: relative;
+    justify-content: center;
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    width: 600%; /* Ajustamos al número de imágenes */
+    height: 100%;
+}
+
+.slides input{
+    display: none;
+}
+
+.slide {
+    width: 20%; /* Cada imagen toma el 20% (1/6) */
+    transition: margin-left 2s;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*css for manual slide navigation*/
+.navigation-manual {
+    position: absolute;
+    width: 100%; /* Cambiamos a 100% para asegurarnos de que se centre */
+    bottom: 20px; /* Lo ubicamos un poco más arriba del borde inferior */
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espacio entre los botones */
+}
+/* Aseguramos que los botones de radio manuales sean iguales */
+.manual-btn {
+    border: 2px solid #1f0e80;
+    padding: 0; /* Eliminamos el padding */
+    border-radius: 50%; /* Hacemos los botones circulares */
+    cursor: pointer;
+    transition: background 0.5s ease; /* Animación suave */
+    width: 20px; /* Ancho fijo para los botones manuales */
+    height: 20px; /* Alto fijo para los botones manuales */
+    display: flex; /* Para centrar el contenido dentro */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+}
+.manual-btn:not(:last-child){
+    margin-right: 40px;
+}
+.manual-btn:hover {
+    background: #02027d;
+}
+#radio1:checked ~ .first{
+    margin-left: 0;
+}
+#radio2:checked~.first {
+    margin-left: -20%;
+}
+#radio3:checked~.first {
+    margin-left: -40%;
+}
+#radio4:checked ~ .first{
+    margin-left: -60%;
+}
+#radio5:checked~.first {
+    margin-left: -80%;
+}
+#radio6:checked~.first {
+    margin-left: -100%;
+}
+
+/* Ajustes para los controles automáticos del slider */
+.navigation-auto {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%; /* Para ocupar todo el ancho */
+    bottom: 20px; /* Ajusta según sea necesario */
+    gap: 10px; /* Espacio entre los botones automáticos */
+}
+
+/* Controles automáticos del slider */
+.navigation-auto div {
+    border: 2px solid green;
+    border-radius: 50%; /* Hacemos los botones circulares */
+    transition: background 0.5s ease; /* Suave transición de fondo */
+    width: 20px; /* Ancho fijo para los botones automáticos */
+    height: 20px; /* Alto fijo para los botones automáticos */
+    display: flex; /* Para centrar el contenido dentro */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+}
+.navigation-auto div:not(:last-child){
+    margin-right: 40px;
+}
+#radio1:checked~.navigation-auto .auto-btn1{
+    background: #1f0e80;
+}
+#radio2:checked~.navigation-auto .auto-btn2 {
+    background: #1f0e80;
+}
+#radio3:checked~.navigation-auto .auto-btn3 {
+    background: #1f0e80;
+}
+#radio4:checked~.navigation-auto .auto-btn4 {
+    background: #1f0e80;
+}
+#radio5:checked~.navigation-auto .auto-btn5 {
+    background: #1f0e80;
+}
+#radio6:checked~.navigation-auto .auto-btn6 {
+    background: #1f0e80;
+}
+  
+
+/* Barra de navegación */
+header {
+  background-color: #333;
+  padding: 10px 0;
+  text-align: center;
+  position: sticky; /* Mantener el header en la parte superior */
+  top: 0; /* Posición en la parte superior */
+  z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+.nav-link.active {
+  color: #ff9900; /* Cambia esto al color que desees para el enlace activo */
+}
+  
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+  
+nav ul li {
+  margin: 0 20px;
+}
+  
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+  
+nav ul li a:hover {
+  color: #ff9900;
+}
+  
+/* Secciones de contenido */
+.contenido {
+  padding: 40px;
+  text-align: center;
+}
+
+
+  
+h1 {
+  font-size: 36px;
+  color: #333;
+}
+  
+h2 {
+  font-size: 28px;
+  margin-top: 20px;
+}
+
+h3 {
+  font-size: 16px;
+  color: white;
+}
+
+.camisetas-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Espacio entre las camisetas */
+  padding: 10px; /* Añade un poco de padding */
+}
+
+.camiseta {
+  text-align: center;
+  border: 1px solid #ddd; /* Borde alrededor de las camisetas */
+  border-radius: 30px;
+  padding: 10px;
+  background-color: white; /* Color de fondo por defecto */
+  width: calc(25% - 20px); /* 4 camisetas por fila, menos el espacio entre ellas */
+  max-width: 200px; /* Ancho máximo para no exceder el tamaño deseado */
+  height: 300px; /* Ajusta la altura que desees */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Espacio entre la imagen y las opciones de color */
+  transition: background-color 1s ease; /* Transición suave para el cambio de fondo */
+}
+
+.camiseta-img {
+  flex-grow: 1; /* Permite que la imagen crezca para ocupar el espacio disponible */
+  display: flex; /* Para centrar la imagen */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+}
+
+.camiseta-img img {
+  max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+  max-height: 100%; /* Asegura que la imagen no exceda la altura del contenedor */
+  object-fit: contain; /* Mantiene la proporción de la imagen sin distorsión */
+}
+
+.color-options {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.color {
+  width: 20px; /* Ancho de cada cuadro de color */
+  height: 20px; /* Alto de cada cuadro de color */
+  cursor: pointer; /* Cambia el cursor al pasar sobre los cuadros */
+  margin: 0 5px; /* Espacio entre los cuadros */
+  border: 1px solid black;
+}
+
+.shadowline .camiseta {
+  background-color: black; /* Fondo negro */
+  color: white; /* Cambia el color del texto si es necesario */
+}
+
+  
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+  
+/* Estilos responsivos */
+@media (max-width: 768px) {
+
+  .banner {
+      height: 50vh; /* Reduce la altura del banner para pantallas pequeñas */
+  }
+
+  .slide img {
+      height: 100%; /* Asegúrate de que la imagen ocupe el 100% de la altura del contenedor */
+      object-fit: cover; /* Mantiene la proporción de la imagen sin distorsión */
+  }
+
+  .camiseta {
+    width: calc(50% - 20px); /* 2 camisetas por fila en pantallas medianas */
+  }
+  
+  /*nav ul {
+    flex-direction: column;
+  }
+  
+  nav ul li {
+    margin: 10px 0;
+  }*/
+}
+
+@media (max-width: 480px) {
+  .camiseta {
+    width: calc(100% - 20px); /* 1 camiseta por fila en pantallas pequeñas */
+  }
+}
+  
